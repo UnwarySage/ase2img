@@ -1,6 +1,8 @@
 #/bin/bash
 #Usage batch export ase files to user provided image type
 #eg: ./batch_ase2img.sh jpg
+#Optionally add a path relative to the scripts location to save the exports to that place
+#eg: ./batch_ase2img.sh jpg output/
 
 : '
 Copyright (C) 2017  Eric Stinger
@@ -22,5 +24,5 @@ Copyright (C) 2017  Eric Stinger
 shopt -s nullglob
 for f in *.ase
 do
-    aseprite -b $f --save-as ${f/ase/$1}
+    aseprite -b $f --save-as $2${f/ase/$1}
 done
